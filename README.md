@@ -3,6 +3,8 @@ Test repository for a lightweight file upload and download API
 
 This doc will go over the frameworks I have used and my reasons for use.
 
+
+Decisions:
 I decided early on in the process that I would use the language of Java.
 This was because java is very interconnected and has many existing frameworks to make it easier to make APIs and hand files of all types.
 Java is also quite a popular language which means that there are more examples of comprehensive docs and troublshooting for many of its tools.
@@ -22,6 +24,22 @@ The Controller is where I chose to map my logic to the calls I had to create. Th
 
 The Service is where I declare the ultimate storage directory, for purposes of this project I created a file locally and used the directory "C:\\upload" but this can be changed if a none local endpoint is added. I left it as local as I believed the project didn't requre further features, i.e building a web based ui and endpoints.
 I made sure to safeguard against null values where possible as wll as some simple security checks for possible malicious use inputs.
+
+
+Project Requirements:
+I believe I have achieve all specifications of the project
+
+The Project can 
+  - Post a multipart file to an enpoint and return the name as a result
+  - Get a file to download based on the name.
+  - Get a list of all metadata from the files.
+
+I created the unique ID by combining the name of teh file and when it was last modified creating a unique designator for each file.
+The files max sizes are limited by the SpringBoot aplication properties file to 20MB
+
+If something goes wrong during the requests a log is made and a message is returned which is dependant on the type of issue.
+The code can be confirmed to work with testing, as well as making requests to the endpoints with tools such as Postman.
+The API can be downloaded from github, the mvn dependancies can be downloaded and teh code can then be run by anyone, if I had more time and was more familare with web develiopment I would prefer to have set up a non local endpoint which could then be queried and tested by anyone at will.
 
 
 Bugs/issues:
